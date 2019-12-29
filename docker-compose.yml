@@ -22,11 +22,12 @@ services:
     volumes:
       - influx-data:/var/lib/influxdb
       - ./influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
-    command: -config /etc/influxdb/influxdb.conf
+    command:
+      -config /etc/influxdb/influxdb.conf
 
-  networks:
-    monitoring:
+networks:
+  monitoring:
 
-  volumes:
-    grafana-data: {}
-    influx-data: {}
+volumes:
+  grafana-data: {}
+  influx-data: {}
