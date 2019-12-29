@@ -21,6 +21,8 @@ services:
       - monitoring
     volumes:
       - influx-data:/var/lib/influxdb
+      - ./influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
+    command: -config /etc/influxdb/influxdb.conf
 
   networks:
     monitoring:
