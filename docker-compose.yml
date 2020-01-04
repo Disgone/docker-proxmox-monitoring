@@ -11,12 +11,15 @@ services:
       - influxdb
     volumes:
       - grafana-data:/var/lib/grafana
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
 
   influxdb:
     image: influxdb
     restart: always
     ports:
       - 8086:8086
+      - 8089:8089/udp
     networks:
       - monitoring
     volumes:
